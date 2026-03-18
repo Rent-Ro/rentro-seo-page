@@ -8,7 +8,7 @@ export default function NavigateAuto() {
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
-  //     router.replace("https://rentro.sa");
+  //     router.replace("https://rentro.ae");
   //   }, 20000);
 
   //   return () => clearTimeout(timer);

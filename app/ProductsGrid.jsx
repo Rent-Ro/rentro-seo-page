@@ -11,7 +11,7 @@ export default function ProductsGrid() {
 
     async function load() {
       try {
-        const res = await fetch("https://api.rentro.sa/api/v1/products");
+        const res = await fetch("https://api.rentro.ae/api/v1/products");
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (isMounted) {
@@ -120,14 +120,14 @@ export default function ProductsGrid() {
 
             <div className="flex space-x-3">
               <a
-                href={`https://rentro.sa`}
+                href={`https://rentro.ae`}
                 target="blank"
                 className="flex-1 bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
                 View Details
               </a>
               <a
-                href={`https://rentro.sa`}
+                href={`https://rentro.ae`}
                 target="blank"
                 className="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
