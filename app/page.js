@@ -1,30 +1,14 @@
 import NavigateAuto from "./NavigteAuto";
+import ProductsGrid from "./ProductsGrid";
 
 export const metadata = {
   title: "Best Water Purifier in Saudi Arabia for Clean Water",
   description:
     "Looking for a reliable water purifier in Saudi Arabia? Get advanced filtration that removes impurities and delivers clean & safe water daily.",
   alternates: {
-    canonical: "https://rentro.ae/service/water-purifier-in-saudi-arabiai",
+    canonical: "https://rentro.sa/service/water-purifier-in-saudi-arabiai",
   },
 };
-
-async function getProducts() {
-  try {
-    const res = await fetch("https://api.rentro.ae/api/v1/products", {
-      cache: "no-store",
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch products");
-    }
-    const data = await res.json();
-    return data.slice(0, 9);
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
-}
 
 const faqs = [
   {
@@ -61,15 +45,13 @@ const faqs = [
   },
 ];
 
-export default async function WaterPurifierPage() {
-  const products = await getProducts();
-
+export default function WaterPurifierPage() {
   return (
     <>
       <header className="w-full flex justify-between items-center bg-white p-4 shadow-md">
         <img src="/rentROLogo.png" className="md:h-10 h-8 w-auto" alt="rentro logo" />
         <a
-          href="https://rentro.ae"
+          href="https://rentro.sa"
           target="blank"
           className="bg-gradient-to-br from-cyan-500 to-blue-700 text-white font-bold p-2 rounded-lg"
         >
@@ -105,104 +87,7 @@ export default async function WaterPurifierPage() {
             <h2 className="text-3xl font-bold text-gray-900">Featured Water Purifiers</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <div
-                key={product.productCode}
-                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                {/* Product Image */}
-                <div className="relative h-56 bg-gray-100 overflow-hidden">
-                  {product.images?.[0] ? (
-                    <img
-                      src={
-                        product.images[0].baseUrl +
-                        product.images[0].uploadDir +
-                        product.images[0].imageUrl.split("/uploads/")[1]
-                      }
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="text-gray-400">No Image</span>
-                    </div>
-                  )}
-                  {product.productFor?.sell?.discountValue > 0 && (
-                    <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      Save {product.productFor.sell.discountValue}%
-                    </div>
-                  )}
-                </div>
-
-                {/* Product Info */}
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold text-lg text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                      {product.name}
-                    </h3>
-                  </div>
-
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                    {product.description || product.longDescription?.substring(0, 100) + "..."}
-                  </p>
-
-                  {/* Price Section */}
-                  <div className="flex items-center justify-between mb-4">
-                    {product.productFor?.sell ? (
-                      <div className="flex items-center space-x-2">
-                        <span className="text-2xl font-bold text-gray-900">
-                          SAR {product.productFor.sell.discountPrice?.toFixed(2)}
-                        </span>
-                        {product.productFor.sell.discountPrice <
-                          product.productFor.sell.actualPrice && (
-                          <span className="text-gray-500 line-through">
-                            SAR {product.productFor.sell.actualPrice?.toFixed(2)}
-                          </span>
-                        )}
-                      </div>
-                    ) : (
-                      <span className="text-gray-500">Price on request</span>
-                    )}
-                  </div>
-
-                  {/* Stock Status */}
-                  <div className="flex items-center mb-4">
-                    <div
-                      className={`w-2 h-2 rounded-full mr-2 ${
-                        product.inventory?.stockStatus === "IN_STOCK"
-                          ? "bg-green-500"
-                          : "bg-red-500"
-                      }`}
-                    ></div>
-                    <span className="text-sm">
-                      {product.inventory?.stockStatus === "IN_STOCK"
-                        ? "In Stock"
-                        : "Out of Stock"}
-                    </span>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex space-x-3">
-                    <a
-                      href={`https://rentro.ae`}
-                      target="blank"
-                      className="flex-1 bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                    >
-                      View Details
-                    </a>
-                    <a
-                      href={`https://rentro.ae`}
-                      target="blank"
-                      className="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-                    >
-                      -
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ProductsGrid />
         </section>
 
         <section className="mb-12">
