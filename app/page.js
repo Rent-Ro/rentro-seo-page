@@ -5,13 +5,13 @@ export const metadata = {
   description:
     "Looking for a reliable water purifier in Saudi Arabia? Get advanced filtration that removes impurities and delivers clean & safe water daily.",
   alternates: {
-    canonical: "https://rentro.sa/service/water-purifier-in-saudi-arabiai",
+    canonical: "https://rentro.ae/service/water-purifier-in-saudi-arabiai",
   },
 };
 
 async function getProducts() {
   try {
-    const res = await fetch("https://api.rentro.sa/api/v1/products", {
+    const res = await fetch("https://api.rentro.ae/api/v1/products", {
       cache: "no-store",
     });
 
@@ -69,7 +69,7 @@ export default async function WaterPurifierPage() {
       <header className="w-full flex justify-between items-center bg-white p-4 shadow-md">
         <img src="/rentROLogo.png" className="md:h-10 h-8 w-auto" alt="rentro logo" />
         <a
-          href="https://rentro.sa"
+          href="https://rentro.ae"
           target="blank"
           className="bg-gradient-to-br from-cyan-500 to-blue-700 text-white font-bold p-2 rounded-lg"
         >
@@ -185,14 +185,14 @@ export default async function WaterPurifierPage() {
                   {/* Action Buttons */}
                   <div className="flex space-x-3">
                     <a
-                      href={`https://rentro.sa`}
+                      href={`https://rentro.ae`}
                       target="blank"
                       className="flex-1 bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                     >
                       View Details
                     </a>
                     <a
-                      href={`https://rentro.sa`}
+                      href={`https://rentro.ae`}
                       target="blank"
                       className="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                     >
