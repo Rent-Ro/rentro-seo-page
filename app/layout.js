@@ -13,6 +13,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Create Next App",
+  verification: {
+    google: "2Z7MB-Kem2Nrdj-5VBUfNLpxybbhVbljF_tnRODAsUs",
+  },
 };
 
 export default function RootLayout({ children }) {
