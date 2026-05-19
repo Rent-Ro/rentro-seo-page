@@ -89,12 +89,12 @@ export default function ProductsGrid() {
               {product.productFor?.sell ? (
                 <div className="flex items-center space-x-2">
                   <span className="text-2xl font-bold text-gray-900">
-                    SAR {product.productFor.sell.discountPrice?.toFixed(2)}
+                    AE {product.productFor.sell.discountPrice?.toFixed(2)}
                   </span>
                   {product.productFor.sell.discountPrice <
                     product.productFor.sell.actualPrice && (
                     <span className="text-gray-500 line-through">
-                      SAR {product.productFor.sell.actualPrice?.toFixed(2)}
+                      AE {product.productFor.sell.actualPrice?.toFixed(2)}
                     </span>
                   )}
                 </div>
